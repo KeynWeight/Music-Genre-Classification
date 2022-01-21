@@ -19,10 +19,6 @@ model_path = os.path.join(local_dir, model_name)
 loaded_model = pickle.load(open(model_path,'rb'))
 
 
-#Set class name
-# class_names = ['rock', 'classical', 'metal', 'disco', 'blues', 'reggae', 'country', 'hiphop', 'jazz', 'pop']
-
-
 ## Page expands to full width
 st.set_page_config(page_title='Song Genre Classification',
                    layout='wide')
@@ -32,19 +28,24 @@ st.set_page_config(page_title='Song Genre Classification',
 
 st.title("Song Genre Classification🎵")
 st.subheader("In this app, you can upload a song clip of 30 seconds and the models will determine which genre it belongs to!")
-st.write("**In total 10 genres are trained, including 'rock', 'classical', 'metal', 'disco', 'blues', 'reggae', 'country', 'hiphop', 'jazz', 'pop'**")
+st.write("**In total 10 genres are trained, which are rock, classical, metal, disco, blues, reggae, country, hiphop, jazz and pop**")
 st.write("**Different song formats are accepted, e.g. wav, mp3**")
 ######################################
 
 
 
 ######################################
-## Sidebar
+## Body
 
-@st.cache
-def make_prediction(audio_file):
-    pass
+# @st.cache
+def make_prediction(audio_path, model):
+    features_array = song_feature_extraction(audio_path)
+    y_pred = model.predict(features_array)
+
+    return y_pred
 ######################################
+
+
 
 
 audio_file = st.file_uploader('Please upload your 30 Seconds song clip here', ['wav', 'mp3'] )
@@ -61,24 +62,20 @@ else:
     st.stop()
 
 
+
 if pred_button:
+    with st.spinner(text='Please wait, the model is predicting the genre of the song'):
+        y_pred = make_prediction(audio_file_temp_path, loaded_model)
 
-    features_array = song_feature_extraction(audio_file_temp_path)
-    y_pred = loaded_model.predict(features_array)
-    st.write(f"The predicted song genre is {y_pred}")
 
-    
+    st.write(f"The predicted song genre is {y_pred[0]}!")
+    st.success('Prediction Successful!')
 
-# choose_model = st.sidebar.selectbox(
-#     "Pick model you'd like to use",
-#     ("XGBoost", 
-#      "Tensorflow Image classification", )
-# )
 
 #Delete the temp directory
 shutil.rmtree(tempdir)
 
 
 
-# # streamlit run /Users/gwunyim/Desktop/Music_genre_classification/main.py
+# streamlit run /Users/gwunyim/Desktop/Music_genre_classification/main.py
 
