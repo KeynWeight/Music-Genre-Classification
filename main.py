@@ -147,5 +147,3 @@ shutil.rmtree(tempdir)
 
 
 
-# streamlit run /Users/gwunyim/Desktop/Music_genre_classification/main.py
-
