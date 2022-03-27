@@ -4,11 +4,13 @@ This is a repository of a streamlit web app. The web app is to classify the song
 
 
 ## Background
-This web app uses XGBoost and a deep learning model to build the classification models. This `music-genre-classification-30-secs-81-accuracy.ipynb` notebook shows the building of the model. This notebook is a copy of the work I did on Kaggle. 
+This web app uses XGBoost and a deep learning model to build the classification models. 
 
-This model is trained on GZTAN Dataset, which 1000 songs of 10 genres are trained in the model, which are rock, classical, metal, disco, blues, reggae, country, hiphop, jazz and pop.
+1. The `music-genre-classification-30-secs-81-accuracy.ipynb` notebook shows the building of the XGBoost model. This notebook is a copy of the work I did on Kaggle. It has achieved 81% accuracy. This model is trained on GZTAN Dataset, which 1000 songs of 10 genres are trained in the model, which are rock, classical, metal, disco, blues, reggae, country, hiphop, jazz and pop.
 
-On average 81% testing accuracy is achieved.
+
+2. The `music-genre-classification-25-secs-73-accuracy.ipynb` notebook shows the building of the deep learning model using Fastai. This model is trained on FMA Dataset, which 25000 songs of 16 genres are trained in the model, which are Blues, Classical, Country, Easy Listening, Electronic, Experimental, Folk, Hip-Hop, Instrumental, International, Jazz, Old-Time / Historic, Pop, Rock, Soul-RnB, Spoken. It has achieved 73% accuracy. For further information, please visit this repo
+https://github.com/mdeff/fma
 
 
 
