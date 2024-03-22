@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 import librosa
 import pickle
@@ -11,7 +10,11 @@ import shutil
 from fastai.vision.all import *
 from fastaudio.core.all import *
 from fastaudio.augment.all import *
+# import numpy as np
 
+import pathlib
+temp = pathlib.PosixPath
+pathlib.PosixPath = pathlib.WindowsPath
 
 #Create temp directory
 tempdir = tempfile.mkdtemp()
