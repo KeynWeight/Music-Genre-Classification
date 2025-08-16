@@ -1,3 +1,4 @@
+Cython=0.28
 xgboost==1.5.1
 scikit-learn==0.23.2
 hyperopt==0.2.7
@@ -7,3 +8,4 @@ streamlit==1.4.0
 ffmpeg==1.4
 fastaudio==1.0.2
 librosa==0.8.0
+
