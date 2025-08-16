@@ -14,4 +14,4 @@ COPY . .
 EXPOSE 10000
 
 # Run Streamlit
-CMD streamlit run app.py --server.port $PORT --server.address 0.0.0.0
+CMD streamlit run main.py --server.port $PORT --server.address 0.0.0.0
