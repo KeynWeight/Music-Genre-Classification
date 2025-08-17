@@ -13,8 +13,11 @@ from fastaudio.augment.all import *
 # import numpy as np
 
 import pathlib
-temp = pathlib.PosixPath
-pathlib.PosixPath = pathlib.WindowsPath
+# temp = pathlib.PosixPath
+# pathlib.PosixPath = pathlib.WindowsPath
+
+if sys.platform != "win32":
+    pathlib.WindowsPath = pathlib.PosixPath
 
 #Create temp directory
 tempdir = tempfile.mkdtemp()
