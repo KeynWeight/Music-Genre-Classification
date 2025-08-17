@@ -29,5 +29,5 @@ streamlit run main.py
 
 
 2. Or you may check out the deployed version on web
-https://share.streamlit.io/keynweight/music-genre-classification/main/main.py
+https://music-genre-classification-pgtv.onrender.com
 
